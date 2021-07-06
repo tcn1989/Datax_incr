@@ -1,0 +1,84 @@
+{
+      "job":{
+        "content":[
+          {
+            "reader":{
+              "name":"mysqlreader",
+              "parameter":{
+                "connection":[
+                  {
+                    "jdbcUrl":[
+                      "jdbc:mysql://47.98.245.217"
+                    ],
+                    "querySql":[
+                        "select 
+      REPLACE(REPLACE(id, CHAR(10), ''), CHAR(13), '') as id,
+      REPLACE(REPLACE(coupon_id, CHAR(10), ''), CHAR(13), '') as coupon_id,
+      REPLACE(REPLACE(code, CHAR(10), ''), CHAR(13), '') as code,
+      REPLACE(REPLACE(status, CHAR(10), ''), CHAR(13), '') as status,
+      REPLACE(REPLACE(start_time, CHAR(10), ''), CHAR(13), '') as start_time,
+      REPLACE(REPLACE(end_time, CHAR(10), ''), CHAR(13), '') as end_time,
+      REPLACE(REPLACE(invalid_user, CHAR(10), ''), CHAR(13), '') as invalid_user,
+      REPLACE(REPLACE(invalid_time, CHAR(10), ''), CHAR(13), '') as invalid_time,
+      REPLACE(REPLACE(invalid_remark, CHAR(10), ''), CHAR(13), '') as invalid_remark,
+      REPLACE(REPLACE(issue_user, CHAR(10), ''), CHAR(13), '') as issue_user,
+      REPLACE(REPLACE(issue_time, CHAR(10), ''), CHAR(13), '') as issue_time,
+      REPLACE(REPLACE(config_id, CHAR(10), ''), CHAR(13), '') as config_id,
+      REPLACE(REPLACE(invalid_time_type, CHAR(10), ''), CHAR(13), '') as invalid_time_type,
+      REPLACE(REPLACE(delete_flag, CHAR(10), ''), CHAR(13), '') as delete_flag,
+      REPLACE(REPLACE(create_time, CHAR(10), ''), CHAR(13), '') as create_time,
+      REPLACE(REPLACE(create_user, CHAR(10), ''), CHAR(13), '') as create_user,
+      REPLACE(REPLACE(modify_time, CHAR(10), ''), CHAR(13), '') as modify_time,
+      REPLACE(REPLACE(modify_user, CHAR(10), ''), CHAR(13), '') as modify_user
+		 from tms.t_bse_consignor_coupon_detail where modify_time > date_sub(now(), interval 1 hour);"                 ]
+                                                                }
+                                                              ],
+                                                              "password":"TmsTest!1234",
+                                                              "username":"root"
+                                                            }
+                                                          },
+                                                          "writer":{
+                                                            "name":"hdfswriter",
+                                                            "parameter":{
+                                                              "column":[ 
+      {'name':'id','type':'STRING'},
+      {'name':'coupon_id','type':'STRING'},
+      {'name':'code','type':'STRING'},
+      {'name':'status','type':'STRING'},
+      {'name':'start_time','type':'STRING'},
+      {'name':'end_time','type':'STRING'},
+      {'name':'invalid_user','type':'STRING'},
+      {'name':'invalid_time','type':'STRING'},
+      {'name':'invalid_remark','type':'STRING'},
+      {'name':'issue_user','type':'STRING'},
+      {'name':'issue_time','type':'STRING'},
+      {'name':'config_id','type':'STRING'},
+      {'name':'invalid_time_type','type':'STRING'},
+      {'name':'delete_flag','type':'STRING'},
+      {'name':'create_time','type':'STRING'},
+      {'name':'create_user','type':'STRING'},
+      {'name':'modify_time','type':'STRING'},
+      {'name':'modify_user','type':'STRING'}
+           ],
+                "compress":"bzip2",
+                "defaultFS":"hdfs://172.16.182.178:8020",
+                "fieldDelimiter":"",
+                "fileName":"ods_tms_t_bse_consignor_coupon_detail_incr",
+                "fileType":"text",
+                "path":"/data/datax/tms_ods_incr",
+                "writeMode":"append"
+              }
+            }
+          }
+        ],
+        "setting":{
+          "errorLimit":{
+            "percentage":0.02,
+            "record":0
+          },
+          "speed":{
+            "channel":1
+          }
+        }
+      }
+    }

@@ -1,0 +1,116 @@
+{
+      "job":{
+        "content":[
+          {
+            "reader":{
+              "name":"mysqlreader",
+              "parameter":{
+                "connection":[
+                  {
+                    "jdbcUrl":[
+                      "jdbc:mysql://47.98.245.217"
+                    ],
+                    "querySql":[
+                        "select 
+      REPLACE(REPLACE(id, CHAR(10), ''), CHAR(13), '') as id,
+      REPLACE(REPLACE(consignor_user_id, CHAR(10), ''), CHAR(13), '') as consignor_user_id,
+      REPLACE(REPLACE(status, CHAR(10), ''), CHAR(13), '') as status,
+      REPLACE(REPLACE(company_name, CHAR(10), ''), CHAR(13), '') as company_name,
+      REPLACE(REPLACE(tax_number, CHAR(10), ''), CHAR(13), '') as tax_number,
+      REPLACE(REPLACE(register_address, CHAR(10), ''), CHAR(13), '') as register_address,
+      REPLACE(REPLACE(register_mobile, CHAR(10), ''), CHAR(13), '') as register_mobile,
+      REPLACE(REPLACE(opening_bank, CHAR(10), ''), CHAR(13), '') as opening_bank,
+      REPLACE(REPLACE(bank_card_no, CHAR(10), ''), CHAR(13), '') as bank_card_no,
+      REPLACE(REPLACE(contact_person, CHAR(10), ''), CHAR(13), '') as contact_person,
+      REPLACE(REPLACE(contact_mobile, CHAR(10), ''), CHAR(13), '') as contact_mobile,
+      REPLACE(REPLACE(contact_address, CHAR(10), ''), CHAR(13), '') as contact_address,
+      REPLACE(REPLACE(contact_email, CHAR(10), ''), CHAR(13), '') as contact_email,
+      REPLACE(REPLACE(seller_company_name, CHAR(10), ''), CHAR(13), '') as seller_company_name,
+      REPLACE(REPLACE(seller_tax_number, CHAR(10), ''), CHAR(13), '') as seller_tax_number,
+      REPLACE(REPLACE(seller_register_address, CHAR(10), ''), CHAR(13), '') as seller_register_address,
+      REPLACE(REPLACE(seller_register_mobile, CHAR(10), ''), CHAR(13), '') as seller_register_mobile,
+      REPLACE(REPLACE(seller_opening_bank, CHAR(10), ''), CHAR(13), '') as seller_opening_bank,
+      REPLACE(REPLACE(seller_bank_card_no, CHAR(10), ''), CHAR(13), '') as seller_bank_card_no,
+      REPLACE(REPLACE(invoice_amount, CHAR(10), ''), CHAR(13), '') as invoice_amount,
+      REPLACE(REPLACE(invoice_number, CHAR(10), ''), CHAR(13), '') as invoice_number,
+      REPLACE(REPLACE(invoice_time, CHAR(10), ''), CHAR(13), '') as invoice_time,
+      REPLACE(REPLACE(invoice_image, CHAR(10), ''), CHAR(13), '') as invoice_image,
+      REPLACE(REPLACE(apply_code, CHAR(10), ''), CHAR(13), '') as apply_code,
+      REPLACE(REPLACE(apply_time, CHAR(10), ''), CHAR(13), '') as apply_time,
+      REPLACE(REPLACE(express_company, CHAR(10), ''), CHAR(13), '') as express_company,
+      REPLACE(REPLACE(express_number, CHAR(10), ''), CHAR(13), '') as express_number,
+      REPLACE(REPLACE(return_reason, CHAR(10), ''), CHAR(13), '') as return_reason,
+      REPLACE(REPLACE(remark, CHAR(10), ''), CHAR(13), '') as remark,
+      REPLACE(REPLACE(delete_flag, CHAR(10), ''), CHAR(13), '') as delete_flag,
+      REPLACE(REPLACE(create_time, CHAR(10), ''), CHAR(13), '') as create_time,
+      REPLACE(REPLACE(create_user, CHAR(10), ''), CHAR(13), '') as create_user,
+      REPLACE(REPLACE(modify_time, CHAR(10), ''), CHAR(13), '') as modify_time,
+      REPLACE(REPLACE(modify_user, CHAR(10), ''), CHAR(13), '') as modify_user
+		 from tms.t_opr_consignor_invoice where modify_time > date_sub(now(), interval 1 hour);"                 ]
+                                                                }
+                                                              ],
+                                                              "password":"TmsTest!1234",
+                                                              "username":"root"
+                                                            }
+                                                          },
+                                                          "writer":{
+                                                            "name":"hdfswriter",
+                                                            "parameter":{
+                                                              "column":[ 
+      {'name':'id','type':'STRING'},
+      {'name':'consignor_user_id','type':'STRING'},
+      {'name':'status','type':'STRING'},
+      {'name':'company_name','type':'STRING'},
+      {'name':'tax_number','type':'STRING'},
+      {'name':'register_address','type':'STRING'},
+      {'name':'register_mobile','type':'STRING'},
+      {'name':'opening_bank','type':'STRING'},
+      {'name':'bank_card_no','type':'STRING'},
+      {'name':'contact_person','type':'STRING'},
+      {'name':'contact_mobile','type':'STRING'},
+      {'name':'contact_address','type':'STRING'},
+      {'name':'contact_email','type':'STRING'},
+      {'name':'seller_company_name','type':'STRING'},
+      {'name':'seller_tax_number','type':'STRING'},
+      {'name':'seller_register_address','type':'STRING'},
+      {'name':'seller_register_mobile','type':'STRING'},
+      {'name':'seller_opening_bank','type':'STRING'},
+      {'name':'seller_bank_card_no','type':'STRING'},
+      {'name':'invoice_amount','type':'STRING'},
+      {'name':'invoice_number','type':'STRING'},
+      {'name':'invoice_time','type':'STRING'},
+      {'name':'invoice_image','type':'STRING'},
+      {'name':'apply_code','type':'STRING'},
+      {'name':'apply_time','type':'STRING'},
+      {'name':'express_company','type':'STRING'},
+      {'name':'express_number','type':'STRING'},
+      {'name':'return_reason','type':'STRING'},
+      {'name':'remark','type':'STRING'},
+      {'name':'delete_flag','type':'STRING'},
+      {'name':'create_time','type':'STRING'},
+      {'name':'create_user','type':'STRING'},
+      {'name':'modify_time','type':'STRING'},
+      {'name':'modify_user','type':'STRING'}
+           ],
+                "compress":"bzip2",
+                "defaultFS":"hdfs://172.16.182.178:8020",
+                "fieldDelimiter":"",
+                "fileName":"ods_tms_t_opr_consignor_invoice_incr",
+                "fileType":"text",
+                "path":"/data/datax/tms_ods_incr",
+                "writeMode":"append"
+              }
+            }
+          }
+        ],
+        "setting":{
+          "errorLimit":{
+            "percentage":0.02,
+            "record":0
+          },
+          "speed":{
+            "channel":1
+          }
+        }
+      }
+    }

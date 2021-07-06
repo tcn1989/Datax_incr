@@ -1,0 +1,70 @@
+{
+      "job":{
+        "content":[
+          {
+            "reader":{
+              "name":"mysqlreader",
+              "parameter":{
+                "connection":[
+                  {
+                    "jdbcUrl":[
+                      "jdbc:mysql://47.98.245.217"
+                    ],
+                    "querySql":[
+                        "select 
+      REPLACE(REPLACE(id, CHAR(10), ''), CHAR(13), '') as id,
+      REPLACE(REPLACE(address_id, CHAR(10), ''), CHAR(13), '') as address_id,
+      REPLACE(REPLACE(contact_id, CHAR(10), ''), CHAR(13), '') as contact_id,
+      REPLACE(REPLACE(consignor_user_id, CHAR(10), ''), CHAR(13), '') as consignor_user_id,
+      REPLACE(REPLACE(default_flag, CHAR(10), ''), CHAR(13), '') as default_flag,
+      REPLACE(REPLACE(current_user_time, CHAR(10), ''), CHAR(13), '') as current_user_time,
+      REPLACE(REPLACE(delete_flag, CHAR(10), ''), CHAR(13), '') as delete_flag,
+      REPLACE(REPLACE(create_time, CHAR(10), ''), CHAR(13), '') as create_time,
+      REPLACE(REPLACE(create_user, CHAR(10), ''), CHAR(13), '') as create_user,
+      REPLACE(REPLACE(modify_time, CHAR(10), ''), CHAR(13), '') as modify_time,
+      REPLACE(REPLACE(modify_user, CHAR(10), ''), CHAR(13), '') as modify_user
+		 from tms.t_bse_consignor_address_contact_relation where modify_time > date_sub(now(), interval 1 hour);"                 ]
+                                                                }
+                                                              ],
+                                                              "password":"TmsTest!1234",
+                                                              "username":"root"
+                                                            }
+                                                          },
+                                                          "writer":{
+                                                            "name":"hdfswriter",
+                                                            "parameter":{
+                                                              "column":[ 
+      {'name':'id','type':'STRING'},
+      {'name':'address_id','type':'STRING'},
+      {'name':'contact_id','type':'STRING'},
+      {'name':'consignor_user_id','type':'STRING'},
+      {'name':'default_flag','type':'STRING'},
+      {'name':'current_user_time','type':'STRING'},
+      {'name':'delete_flag','type':'STRING'},
+      {'name':'create_time','type':'STRING'},
+      {'name':'create_user','type':'STRING'},
+      {'name':'modify_time','type':'STRING'},
+      {'name':'modify_user','type':'STRING'}
+           ],
+                "compress":"bzip2",
+                "defaultFS":"hdfs://172.16.182.178:8020",
+                "fieldDelimiter":"",
+                "fileName":"ods_tms_t_bse_consignor_address_contact_relation_incr",
+                "fileType":"text",
+                "path":"/data/datax/tms_ods_incr",
+                "writeMode":"append"
+              }
+            }
+          }
+        ],
+        "setting":{
+          "errorLimit":{
+            "percentage":0.02,
+            "record":0
+          },
+          "speed":{
+            "channel":1
+          }
+        }
+      }
+    }

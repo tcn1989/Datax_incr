@@ -1,0 +1,166 @@
+{
+      "job":{
+        "content":[
+          {
+            "reader":{
+              "name":"mysqlreader",
+              "parameter":{
+                "connection":[
+                  {
+                    "jdbcUrl":[
+                      "jdbc:mysql://47.98.245.217"
+                    ],
+                    "querySql":[
+                        "select 
+      REPLACE(REPLACE(id, CHAR(10), ''), CHAR(13), '') as id,
+      REPLACE(REPLACE(code, CHAR(10), ''), CHAR(13), '') as code,
+      REPLACE(REPLACE(consignor_user_id, CHAR(10), ''), CHAR(13), '') as consignor_user_id,
+      REPLACE(REPLACE(type, CHAR(10), ''), CHAR(13), '') as type,
+      REPLACE(REPLACE(specification, CHAR(10), ''), CHAR(13), '') as specification,
+      REPLACE(REPLACE(van_type, CHAR(10), ''), CHAR(13), '') as van_type,
+      REPLACE(REPLACE(start_area_code, CHAR(10), ''), CHAR(13), '') as start_area_code,
+      REPLACE(REPLACE(end_area_code, CHAR(10), ''), CHAR(13), '') as end_area_code,
+      REPLACE(REPLACE(load_time, CHAR(10), ''), CHAR(13), '') as load_time,
+      REPLACE(REPLACE(goods_name, CHAR(10), ''), CHAR(13), '') as goods_name,
+      REPLACE(REPLACE(goods_weight, CHAR(10), ''), CHAR(13), '') as goods_weight,
+      REPLACE(REPLACE(goods_volume, CHAR(10), ''), CHAR(13), '') as goods_volume,
+      REPLACE(REPLACE(time_consume_hour, CHAR(10), ''), CHAR(13), '') as time_consume_hour,
+      REPLACE(REPLACE(time_consume_min, CHAR(10), ''), CHAR(13), '') as time_consume_min,
+      REPLACE(REPLACE(distance, CHAR(10), ''), CHAR(13), '') as distance,
+      REPLACE(REPLACE(receipt_type, CHAR(10), ''), CHAR(13), '') as receipt_type,
+      REPLACE(REPLACE(receipt, CHAR(10), ''), CHAR(13), '') as receipt,
+      REPLACE(REPLACE(receipt_attachment, CHAR(10), ''), CHAR(13), '') as receipt_attachment,
+      REPLACE(REPLACE(receipt_confirm_time, CHAR(10), ''), CHAR(13), '') as receipt_confirm_time,
+      REPLACE(REPLACE(remark, CHAR(10), ''), CHAR(13), '') as remark,
+      REPLACE(REPLACE(system_quotation_amount, CHAR(10), ''), CHAR(13), '') as system_quotation_amount,
+      REPLACE(REPLACE(freight_amount, CHAR(10), ''), CHAR(13), '') as freight_amount,
+      REPLACE(REPLACE(discount_amount, CHAR(10), ''), CHAR(13), '') as discount_amount,
+      REPLACE(REPLACE(coupon_amount, CHAR(10), ''), CHAR(13), '') as coupon_amount,
+      REPLACE(REPLACE(service_amount, CHAR(10), ''), CHAR(13), '') as service_amount,
+      REPLACE(REPLACE(load_amount, CHAR(10), ''), CHAR(13), '') as load_amount,
+      REPLACE(REPLACE(detention_amount, CHAR(10), ''), CHAR(13), '') as detention_amount,
+      REPLACE(REPLACE(receipt_amount, CHAR(10), ''), CHAR(13), '') as receipt_amount,
+      REPLACE(REPLACE(expect_empty_amount, CHAR(10), ''), CHAR(13), '') as expect_empty_amount,
+      REPLACE(REPLACE(empty_amount, CHAR(10), ''), CHAR(13), '') as empty_amount,
+      REPLACE(REPLACE(other_amount, CHAR(10), ''), CHAR(13), '') as other_amount,
+      REPLACE(REPLACE(dispatch_amount, CHAR(10), ''), CHAR(13), '') as dispatch_amount,
+      REPLACE(REPLACE(actual_freight_amount, CHAR(10), ''), CHAR(13), '') as actual_freight_amount,
+      REPLACE(REPLACE(total_amount, CHAR(10), ''), CHAR(13), '') as total_amount,
+      REPLACE(REPLACE(oil_ratio, CHAR(10), ''), CHAR(13), '') as oil_ratio,
+      REPLACE(REPLACE(empty_reason_type, CHAR(10), ''), CHAR(13), '') as empty_reason_type,
+      REPLACE(REPLACE(transaction_time, CHAR(10), ''), CHAR(13), '') as transaction_time,
+      REPLACE(REPLACE(order_time, CHAR(10), ''), CHAR(13), '') as order_time,
+      REPLACE(REPLACE(cancel_time, CHAR(10), ''), CHAR(13), '') as cancel_time,
+      REPLACE(REPLACE(vehicle_code, CHAR(10), ''), CHAR(13), '') as vehicle_code,
+      REPLACE(REPLACE(vehicle_license_num, CHAR(10), ''), CHAR(13), '') as vehicle_license_num,
+      REPLACE(REPLACE(trailer_code, CHAR(10), ''), CHAR(13), '') as trailer_code,
+      REPLACE(REPLACE(trailer_license_num, CHAR(10), ''), CHAR(13), '') as trailer_license_num,
+      REPLACE(REPLACE(car_inviter, CHAR(10), ''), CHAR(13), '') as car_inviter,
+      REPLACE(REPLACE(driver_id, CHAR(10), ''), CHAR(13), '') as driver_id,
+      REPLACE(REPLACE(driver_name, CHAR(10), ''), CHAR(13), '') as driver_name,
+      REPLACE(REPLACE(driver_mobile, CHAR(10), ''), CHAR(13), '') as driver_mobile,
+      REPLACE(REPLACE(send_time, CHAR(10), ''), CHAR(13), '') as send_time,
+      REPLACE(REPLACE(send_remark, CHAR(10), ''), CHAR(13), '') as send_remark,
+      REPLACE(REPLACE(status, CHAR(10), ''), CHAR(13), '') as status,
+      REPLACE(REPLACE(verify_status, CHAR(10), ''), CHAR(13), '') as verify_status,
+      REPLACE(REPLACE(expect_departure_time, CHAR(10), ''), CHAR(13), '') as expect_departure_time,
+      REPLACE(REPLACE(expect_arrival_time, CHAR(10), ''), CHAR(13), '') as expect_arrival_time,
+      REPLACE(REPLACE(dispatch_generate_failed_reason, CHAR(10), ''), CHAR(13), '') as dispatch_generate_failed_reason,
+      REPLACE(REPLACE(delete_flag, CHAR(10), ''), CHAR(13), '') as delete_flag,
+      REPLACE(REPLACE(create_time, CHAR(10), ''), CHAR(13), '') as create_time,
+      REPLACE(REPLACE(create_user, CHAR(10), ''), CHAR(13), '') as create_user,
+      REPLACE(REPLACE(modify_time, CHAR(10), ''), CHAR(13), '') as modify_time,
+      REPLACE(REPLACE(modify_user, CHAR(10), ''), CHAR(13), '') as modify_user
+		 from tms.t_opr_consignor_order where modify_time > date_sub(now(), interval 1 hour);"                 ]
+                                                                }
+                                                              ],
+                                                              "password":"TmsTest!1234",
+                                                              "username":"root"
+                                                            }
+                                                          },
+                                                          "writer":{
+                                                            "name":"hdfswriter",
+                                                            "parameter":{
+                                                              "column":[ 
+      {'name':'id','type':'STRING'},
+      {'name':'code','type':'STRING'},
+      {'name':'consignor_user_id','type':'STRING'},
+      {'name':'type','type':'STRING'},
+      {'name':'specification','type':'STRING'},
+      {'name':'van_type','type':'STRING'},
+      {'name':'start_area_code','type':'STRING'},
+      {'name':'end_area_code','type':'STRING'},
+      {'name':'load_time','type':'STRING'},
+      {'name':'goods_name','type':'STRING'},
+      {'name':'goods_weight','type':'STRING'},
+      {'name':'goods_volume','type':'STRING'},
+      {'name':'time_consume_hour','type':'STRING'},
+      {'name':'time_consume_min','type':'STRING'},
+      {'name':'distance','type':'STRING'},
+      {'name':'receipt_type','type':'STRING'},
+      {'name':'receipt','type':'STRING'},
+      {'name':'receipt_attachment','type':'STRING'},
+      {'name':'receipt_confirm_time','type':'STRING'},
+      {'name':'remark','type':'STRING'},
+      {'name':'system_quotation_amount','type':'STRING'},
+      {'name':'freight_amount','type':'STRING'},
+      {'name':'discount_amount','type':'STRING'},
+      {'name':'coupon_amount','type':'STRING'},
+      {'name':'service_amount','type':'STRING'},
+      {'name':'load_amount','type':'STRING'},
+      {'name':'detention_amount','type':'STRING'},
+      {'name':'receipt_amount','type':'STRING'},
+      {'name':'expect_empty_amount','type':'STRING'},
+      {'name':'empty_amount','type':'STRING'},
+      {'name':'other_amount','type':'STRING'},
+      {'name':'dispatch_amount','type':'STRING'},
+      {'name':'actual_freight_amount','type':'STRING'},
+      {'name':'total_amount','type':'STRING'},
+      {'name':'oil_ratio','type':'STRING'},
+      {'name':'empty_reason_type','type':'STRING'},
+      {'name':'transaction_time','type':'STRING'},
+      {'name':'order_time','type':'STRING'},
+      {'name':'cancel_time','type':'STRING'},
+      {'name':'vehicle_code','type':'STRING'},
+      {'name':'vehicle_license_num','type':'STRING'},
+      {'name':'trailer_code','type':'STRING'},
+      {'name':'trailer_license_num','type':'STRING'},
+      {'name':'car_inviter','type':'STRING'},
+      {'name':'driver_id','type':'STRING'},
+      {'name':'driver_name','type':'STRING'},
+      {'name':'driver_mobile','type':'STRING'},
+      {'name':'send_time','type':'STRING'},
+      {'name':'send_remark','type':'STRING'},
+      {'name':'status','type':'STRING'},
+      {'name':'verify_status','type':'STRING'},
+      {'name':'expect_departure_time','type':'STRING'},
+      {'name':'expect_arrival_time','type':'STRING'},
+      {'name':'dispatch_generate_failed_reason','type':'STRING'},
+      {'name':'delete_flag','type':'STRING'},
+      {'name':'create_time','type':'STRING'},
+      {'name':'create_user','type':'STRING'},
+      {'name':'modify_time','type':'STRING'},
+      {'name':'modify_user','type':'STRING'}
+           ],
+                "compress":"bzip2",
+                "defaultFS":"hdfs://172.16.182.178:8020",
+                "fieldDelimiter":"",
+                "fileName":"ods_tms_t_opr_consignor_order_incr",
+                "fileType":"text",
+                "path":"/data/datax/tms_ods_incr",
+                "writeMode":"append"
+              }
+            }
+          }
+        ],
+        "setting":{
+          "errorLimit":{
+            "percentage":0.02,
+            "record":0
+          },
+          "speed":{
+            "channel":1
+          }
+        }
+      }
+    }

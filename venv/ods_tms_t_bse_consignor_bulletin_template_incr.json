@@ -1,0 +1,92 @@
+{
+      "job":{
+        "content":[
+          {
+            "reader":{
+              "name":"mysqlreader",
+              "parameter":{
+                "connection":[
+                  {
+                    "jdbcUrl":[
+                      "jdbc:mysql://47.98.245.217"
+                    ],
+                    "querySql":[
+                        "select 
+      REPLACE(REPLACE(id, CHAR(10), ''), CHAR(13), '') as id,
+      REPLACE(REPLACE(code, CHAR(10), ''), CHAR(13), '') as code,
+      REPLACE(REPLACE(name, CHAR(10), ''), CHAR(13), '') as name,
+      REPLACE(REPLACE(content, CHAR(10), ''), CHAR(13), '') as content,
+      REPLACE(REPLACE(url, CHAR(10), ''), CHAR(13), '') as url,
+      REPLACE(REPLACE(page_path, CHAR(10), ''), CHAR(13), '') as page_path,
+      REPLACE(REPLACE(page, CHAR(10), ''), CHAR(13), '') as page,
+      REPLACE(REPLACE(page_name, CHAR(10), ''), CHAR(13), '') as page_name,
+      REPLACE(REPLACE(action, CHAR(10), ''), CHAR(13), '') as action,
+      REPLACE(REPLACE(tab, CHAR(10), ''), CHAR(13), '') as tab,
+      REPLACE(REPLACE(module, CHAR(10), ''), CHAR(13), '') as module,
+      REPLACE(REPLACE(title, CHAR(10), ''), CHAR(13), '') as title,
+      REPLACE(REPLACE(title_image, CHAR(10), ''), CHAR(13), '') as title_image,
+      REPLACE(REPLACE(subtitle, CHAR(10), ''), CHAR(13), '') as subtitle,
+      REPLACE(REPLACE(icon, CHAR(10), ''), CHAR(13), '') as icon,
+      REPLACE(REPLACE(color, CHAR(10), ''), CHAR(13), '') as color,
+      REPLACE(REPLACE(release_user, CHAR(10), ''), CHAR(13), '') as release_user,
+      REPLACE(REPLACE(delete_flag, CHAR(10), ''), CHAR(13), '') as delete_flag,
+      REPLACE(REPLACE(create_time, CHAR(10), ''), CHAR(13), '') as create_time,
+      REPLACE(REPLACE(create_user, CHAR(10), ''), CHAR(13), '') as create_user,
+      REPLACE(REPLACE(modify_time, CHAR(10), ''), CHAR(13), '') as modify_time,
+      REPLACE(REPLACE(modify_user, CHAR(10), ''), CHAR(13), '') as modify_user
+		 from tms.t_bse_consignor_bulletin_template where modify_time > date_sub(now(), interval 1 hour);"                 ]
+                                                                }
+                                                              ],
+                                                              "password":"TmsTest!1234",
+                                                              "username":"root"
+                                                            }
+                                                          },
+                                                          "writer":{
+                                                            "name":"hdfswriter",
+                                                            "parameter":{
+                                                              "column":[ 
+      {'name':'id','type':'STRING'},
+      {'name':'code','type':'STRING'},
+      {'name':'name','type':'STRING'},
+      {'name':'content','type':'STRING'},
+      {'name':'url','type':'STRING'},
+      {'name':'page_path','type':'STRING'},
+      {'name':'page','type':'STRING'},
+      {'name':'page_name','type':'STRING'},
+      {'name':'action','type':'STRING'},
+      {'name':'tab','type':'STRING'},
+      {'name':'module','type':'STRING'},
+      {'name':'title','type':'STRING'},
+      {'name':'title_image','type':'STRING'},
+      {'name':'subtitle','type':'STRING'},
+      {'name':'icon','type':'STRING'},
+      {'name':'color','type':'STRING'},
+      {'name':'release_user','type':'STRING'},
+      {'name':'delete_flag','type':'STRING'},
+      {'name':'create_time','type':'STRING'},
+      {'name':'create_user','type':'STRING'},
+      {'name':'modify_time','type':'STRING'},
+      {'name':'modify_user','type':'STRING'}
+           ],
+                "compress":"bzip2",
+                "defaultFS":"hdfs://172.16.182.178:8020",
+                "fieldDelimiter":"",
+                "fileName":"ods_tms_t_bse_consignor_bulletin_template_incr",
+                "fileType":"text",
+                "path":"/data/datax/tms_ods_incr",
+                "writeMode":"append"
+              }
+            }
+          }
+        ],
+        "setting":{
+          "errorLimit":{
+            "percentage":0.02,
+            "record":0
+          },
+          "speed":{
+            "channel":1
+          }
+        }
+      }
+    }
